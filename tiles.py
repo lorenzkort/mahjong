@@ -10,9 +10,9 @@ suits = {
     'wind':['south', 'east', 'north', 'west'],
 }
 
-def create_all():
+def create_all(unique=False):
     tiles = []
-    for counter in range(4):
+    for counter in range(4 if not unique else 1):
         for suit, types in suits.items():
             for type in types:
                 tiles.append(
@@ -30,7 +30,7 @@ def create_all():
                             "type":r,
                             "name":f"flowers {r}",
                             "id": secrets.token_urlsafe(8)
-                        } 
+                        }
                     )
     return tiles
 

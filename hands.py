@@ -1,55 +1,57 @@
-import random
-from tiles import all_tiles
+from tiles import create_all
 
+class Hands():
 
+    def __init__(self, current_hand) -> None:
+        self.current_hand = current_hand
 
-class Game():
+    def get_missing_tiles(self):
+        self.current_hand
+        # get current hand
+        # identify possible pungs
+        # identify possible chows
+        # identify the missing tiles
+        pass
 
-    def __init__(self, seed=1, east=False) -> None:
-        random.seed(seed)
-        self.east = east
-        self.tile_amt = 14 if east else 13
-        self.hand = random.sample(all_tiles, self.tile_amt)
-        self.player2 = random.sample(
-            [x for x in all_tiles if x not in self.hand]
-            , 13 if east else 14)
-        self.player3 = random.sample(
-            [x for x in all_tiles if x not in self.hand + self.player2]
-            , 13)
-        self.player4 = random.sample(
-            [x for x in all_tiles if x not in self.hand + self.player2 + self.player3]
-            , 13)
-        self.wall = [x for x in all_tiles if x not in self.hand and x not in self.hand + self.player2 + self.player3 + self.player4]
+    def generate_discard_scores(self):
+        # order tiles by how often they DO NOT occur in the top x% of possible Mahjongs
+        # calculate likeliness to get the tiles
+        # form concept mahjong
+        # identify all redundant tiles
+        pass
 
-    def show_hand(self):
-        self.hand.sort(key=lambda x: x["suit"])
-        for tile in self.hand:
-            print(tile["name"])
+    # def generate_all_chows(self) -> list:
+    #     chows = []
+    #     for suit in ['bamboo', 'cirlces', 'numbers']:
+    #         for n in range(2,9):
+    #             chow = []
+    #             for t in [n - 1, n, n + 1]:
+    #                 chow.append({
+    #                     "suit":suit,
+    #                     "type":t
+    #                 })
+    #             chows.append(chow)
+    #     return chows
 
-    def show_stats(self):
-        print(
-            f"""
-------------- STATS -------------
-Tiles in wall    : {len(self.wall)}
-Tiles in my hand : {len(self.hand)}
-Tiles player 2   : {len(self.player2)}
-Tiles player 3   : {len(self.player3)}
-Tiles player 4   : {len(self.player4)}
----------------------------------
-            """
-        )
+    # def generat_all_pungs(self):
+    #     pungs = []
+    #     cleaned_tiles = []
+    #     for item in create_all(unique=True):
+    #         if item['suit'] != 'flowers':
+    #             cleaned_tiles.append(
+    #                 {
+    #                     "suit":item["suit"],
+    #                     "type":item["type"]
+    #                 }
+    #             )
+    #     for tile in cleaned_tiles:
+    #         pung = [tile for n in range(3)]
+    #         pungs.append(pung)
+    #     return pungs
+
+    def id_pungs_from_hand(self)
+
+    def vanilla_mahjongs(self) -> list:
         
-class Odds():
 
-    def __init__(self, hand) -> None:
-        self.hand = hand
-        self.odds = []
-    
-    def calc_suit(self, suit):
-        pass
-
-
-    def vanilla(self):
-        pass
-
-
+        return # list of all possible mahjongs
