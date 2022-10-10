@@ -1,3 +1,5 @@
+# Tools to calculate the odds in a game
+
 from game import Game
 
 class Odds():

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<br><br><br><br>
+  <p>player1</p>
+  {% for tile in player1_hand %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
+  
+  <p>player2</p>
+  {% for tile in player2_hand %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
+  
+  <p>player3</p>
+  {% for tile in player3_hand %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
+  
+  <p>player4</p>
+  {% for tile in player4_hand %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
+  
+  <p>wall</p>
+  {% for tile in wall %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
+  
+{% endblock content %}
