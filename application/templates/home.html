@@ -1,13 +1,33 @@
 {% extends "layout.html" %}
 {% block content %}
 <br><br><br><br>
+<div class="content-section">
+    <form method="GET" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Play Mahjong</legend>
+        <div class="form-group">
+            <input class='btn btn-outline-info' type="submit" name="submit" value="Exchange flowers">
+        </div>
+    </form>
+</div>
+
+  <p>checksum:<br>{{ checksum }}</p>
   <p>player1</p>
   {% for tile in player1_hand %}
       <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
   {% endfor %}
-  
+  <p>outs</p>
+  {% for tile in p1_outs %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
+
   <p>player2</p>
   {% for tile in player2_hand %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
+  <p>outs</p>
+  {% for tile in p2_outs %}
       <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
   {% endfor %}
   
@@ -15,9 +35,17 @@
   {% for tile in player3_hand %}
       <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
   {% endfor %}
+  <p>outs</p>
+  {% for tile in p3_outs %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
   
   <p>player4</p>
   {% for tile in player4_hand %}
+      <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
+  {% endfor %}
+  <p>outs</p>
+  {% for tile in p4_outs %}
       <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
   {% endfor %}
   
@@ -25,5 +53,4 @@
   {% for tile in wall %}
       <img class="img" src="{{ url_for('static', filename='tiles/' + tile.img) }}">
   {% endfor %}
-  
 {% endblock content %}
